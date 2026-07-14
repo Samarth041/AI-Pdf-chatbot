@@ -20,7 +20,7 @@ def generate(state):
     docs=state["documents"]
 
     context="\n\n".join(
-        docs.page_content
+        doc.page_content
         for doc in docs
     )
 
@@ -29,7 +29,7 @@ def generate(state):
         question=question
     )
 
-    respone=chat_model.invoke(prompt)
+    response=chat_model.invoke(prompt)
 
     return {
         "answer":response.content
