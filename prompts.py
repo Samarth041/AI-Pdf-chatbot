@@ -1,10 +1,18 @@
 RAG_PROMPT="""
 
 You are a helful AI assistant.
-Answer only using the provided context
+Use the previous conversation if it helps answer the user's question.
 
-If the answer is not present in the context , reply:
-"I dont know based on the provided documents."
+If the answer cannot be found in the provided context,say:
+
+"I dont't know based on provided documents."
+
+
+Chat History
+-----------------
+
+
+{chat_history}
 
 
 Context

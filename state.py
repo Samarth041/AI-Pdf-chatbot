@@ -12,3 +12,5 @@ class GraphState(TypedDict):
     #final answer
 
     answer:str
+
+    chat_history:List
