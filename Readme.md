@@ -298,21 +298,19 @@ Benefits
 ### User
 
 ```
-Explain Random Forest.
+Explain Embeddings.
 ```
 
 ### Assistant
 
 ```
-Random Forest is an ensemble machine learning algorithm that combines multiple decision trees to improve prediction accuracy and reduce overfitting. Each tree is trained on a random subset of the data and features, and the final prediction is made through majority voting (classification) or averaging (regression).
+Embeddings are digital fingerprints or lists of numbers that represent the meaning of words, images, or data. Machine learning models group similar things close together in a math space. This allows AI to search, sort, and recommend content by meaning rather than exact words.
 ```
 
 ### Sources
 
 ```
-MachineLearning.pdf (Page 18)
-
-MachineLearning.pdf (Page 19)
+AI Engineering.pdf
 ```
 
 ---
@@ -367,13 +365,13 @@ Jawaharlal Nehru University
 **GitHub**
 
 ```
-https://github.com/yourusername
+https://github.com/Samarth041
 ```
 
 **LinkedIn**
 
 ```
-https://linkedin.com/in/yourprofile
+https://www.linkedin.com/in/samarth-gupta-097617316/
 ```
 
 ---
