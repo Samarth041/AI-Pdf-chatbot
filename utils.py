@@ -1,14 +1,8 @@
-from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+from langchain_groq import ChatGroq
+from config import GROQ_API_KEY
 
-
-from config import HF_TOKEN
-
-llm=HuggingFaceEndpoint(
-    repo_id="Qwen/Qwen2.5-7B-Instruct",
-    huggingfacehub_api_token=HF_TOKEN,
-    task="text-generation",
-    max_new_tokens=512,
-    temperature=0.2
+chat_model = ChatGroq(
+    api_key=GROQ_API_KEY,
+    model="llama-3.3-70b-versatile",
+    temperature=0.2,
 )
-
-chat_model=ChatHuggingFace(llm=llm)

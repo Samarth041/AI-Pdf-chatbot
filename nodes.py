@@ -1,5 +1,5 @@
 from retriever import retrieve_documents
-
+from prompts import DOCUMENT_GRADER_PROMPT
 from prompts import RAG_PROMPT
 from utils import chat_model
 
@@ -17,7 +17,7 @@ def generate(state):
 
     question=state["question"]
 
-    docs=state["documents"]
+    docs=state["filtered_documents"]
 
     history=state.get("chat_history",[])
 
@@ -43,4 +43,29 @@ def generate(state):
 
     return {
         "answer":response.content
+    }
+
+#GRADE DOCUMENT node
+
+def grade_documents(state):
+
+    question=state["question"]
+
+    docs=state["documents"]
+
+    relevant_docs=[]
+
+    for doc in docs:
+        prompt=DOCUMENT_GRADER_PROMPT.format(
+            question=question,
+            document=doc.page_content
+        )
+
+        response=chat_model.invoke(prompt)
+
+        if "yes" in response.content.lower():
+            relevant_docs.append(doc)
+
+    return{
+        "filtered_documents":relevant_docs
     }

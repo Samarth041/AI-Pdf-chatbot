@@ -8,6 +8,7 @@ class GraphState(TypedDict):
     question:str
     #retrieved documents
     documents:List[Document]
+    filtered_documents:List[Document]
 
     #final answer
 

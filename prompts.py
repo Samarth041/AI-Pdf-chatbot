@@ -27,3 +27,16 @@ Answer:
 
 """
 
+DOCUMENT_GRADER_PROMPT="""
+You are an exper documnet relevance grader.
+Question
+{question}
+
+Document:
+{document}
+
+Answer ONLY with 
+
+yes or no. Do not explain
+"""
+

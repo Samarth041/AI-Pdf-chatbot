@@ -6,6 +6,6 @@ load_dotenv()
 GOOGLE_API_KEY=os.getenv("GOOGLE_API_KEY")
 HF_TOKEN = os.getenv("HF_TOKEN")
 LANGCHAIN_API_KEY=os.getenv("LANGCHANIN_API_KEY")
-
+GROQ_API_KEY=os.getenv("GROQ_API_KEY")
 LANGCHAIN_PROJECT=os.getenv("LANGCHAIN_PROJECT")
 
