@@ -15,3 +15,4 @@ class GraphState(TypedDict):
     answer:str
 
     chat_history:List
+    retries:int

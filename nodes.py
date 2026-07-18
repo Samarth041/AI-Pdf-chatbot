@@ -75,6 +75,9 @@ def grade_documents(state):
 
 def rewrite_query(state):
     question=state["question"]
+    retries=state.get("retries",0)
+    retries+=1
+
 
     prompt=QUERY_REWRITE_PROMPT.format(
         question=question
@@ -85,13 +88,17 @@ def rewrite_query(state):
     rewritten_question=response.content.strip()
 
     return {
-        "question":rewritten_question
+        "question":rewritten_question,
+        "retries":retries
     }
 
 def decide_to_generate(state):
     docs=state["filtered_documents"]
 
-    if len(docs)==0:
+    if len(docs)>0:
+        return "generate"
 
-        return "rewrite"
-    return "generate"
+    if state.get("retries",0)>=2:
+        return "generate"
+
+    return "rewrite"
