@@ -26,7 +26,7 @@ Question
 Answer:
 
 """
-
+#----------------------------------------------------------------------------
 DOCUMENT_GRADER_PROMPT="""
 You are an exper documnet relevance grader.
 Question
@@ -38,5 +38,21 @@ Document:
 Answer ONLY with 
 
 yes or no. Do not explain
+"""
+#-------------------------------------------------------------------------
+QUERY_REWRITE_PROMPT="""
+You are an AI assistant specialized in rewriting search queries.
+
+Rewrite the user's question so that it is easier for a semantic retriever to understand.
+
+Keep the meaning exactly the same.
+
+Return ONLY the rewritten question.
+
+Original Question:
+
+{question}
+
+Rewritten Question:
 """
 

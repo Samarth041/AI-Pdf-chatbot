@@ -3,6 +3,8 @@ from prompts import DOCUMENT_GRADER_PROMPT
 from prompts import RAG_PROMPT
 from utils import chat_model
 
+from prompts import QUERY_REWRITE_PROMPT
+
 def retrieve(state):
     question=state["question"]
 
@@ -69,3 +71,27 @@ def grade_documents(state):
     return{
         "filtered_documents":relevant_docs
     }
+
+
+def rewrite_query(state):
+    question=state["question"]
+
+    prompt=QUERY_REWRITE_PROMPT.format(
+        question=question
+    )
+
+    response=chat_model.invoke(prompt)
+
+    rewritten_question=response.content.strip()
+
+    return {
+        "question":rewritten_question
+    }
+
+def decide_to_generate(state):
+    docs=state["filtered_documents"]
+
+    if len(docs)==0:
+
+        return "rewrite"
+    return "generate"
